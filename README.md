@@ -1,2 +1,4 @@
 # windows_rice
-my personal configs and setup files for my likings of how to use and how windows should look
+
+## yasb
+it is a modified Kirakira. https://github.com/MrDLingters/Kirakira_YASB[https://github.com/MrDLingters/Kirakira_YASB]
