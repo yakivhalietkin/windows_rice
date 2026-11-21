@@ -7,9 +7,9 @@
     --icons-font-fallback: "JetBrainsMono NFP", "JetBrainsMono Nerd Font Propo";
     --system-font: "Segoe UI Variable", "Segoe UI";
     --specialFont: "Segoe UI Variable", "Segoe UI";
-    --border-radius: 12;
-    --border-radius2: 4;
-    --border-radius3: 8;
+    --border-radius: 0;
+    --border-radius2: 0;
+    --border-radius3: 0;
     --border-radiusWallpapers: 0;
     --fontSize: 12px;
     --iconSize: 16px;
@@ -19,18 +19,19 @@
     /*colors*/
 
     /* Translucent theme*/
-    --background: rgba(255, 255, 255, 0.6);
+    --background: rgba(255, 255, 255, 0.5);
     --background2: rgba(170, 170, 170, 0.5);
     --accent: var(--yasb-accent-light1);
     --text: rgba(24, 24, 27, 1);
     --accentText: rgba(24, 24, 27, 1);
-    --hover: rgba(190, 190, 190, 0.4);
+    --hover: rgba(190, 190, 190, 0.6);
     --mutedBG: rgba(164, 164, 164, 0.4);
     --border: rgba(255, 255, 255, 0.3);
     --redFlash: rgba(137, 137, 137, 0.9);
-    --subtext: rgba(90, 90, 90, 1);
+    --subtext: rgba(24, 24, 27, 1);
     --accentHover: var(--yasb-accent);
-    --audio: var(--yasb-accent-dark2);
+	#--audio: var(--yasb-accent-light2);
+    #--audio: var(--yasb-accent-dark2);
 
     /* Translucent dark theme*/
     --backgroundDark: rgba(44, 44, 44, 0.4);
@@ -450,12 +451,14 @@
 
 /* Device list styles */
 .audio-menu .audio-container .device {
-    background-color:transparent;
+    #background-color:transparent;
+	background-color:var(--background);
     border: none;
     padding:6px 8px 6px 4px;
     margin: 2px 0;
     font-size: var(--fontSize);
     border-radius: var(--border-radius2);
+	color: var(--text);
 }
 .audio-menu .audio-container .device.selected {
     background-color: var(--background2);
@@ -504,7 +507,7 @@
 }
 
 .dark .audio-menu .toggle-apps {
-    color: var(--textDark);
+    color: var(--text);
 }
 
 .audio-menu .toggle-apps.expanded {
@@ -2115,47 +2118,77 @@ which is 16 pixels same as the other sections. */
 }
 
 /* Context menu styles for dropdowns and menus inside the Control Center panel */
-.control-center-menu .context-menu {
-    padding: 4px 0px;
-    font-family: "Segoe UI Variable", "Segoe UI";
-    font-weight: var(--fontWeight);
-    font-size: var(--fontSize);
-    color: var(--text);
-    border-radius: var(--border-radius);
+#.control-center-menu .context-menu {
+#    padding: 4px 0px;
+#    font-family: "Segoe UI Variable", "Segoe UI";
+#    font-weight: var(--fontWeight);
+#    font-size: var(--fontSize);
+#    color: var(--text);
+#    border-radius: var(--border-radius);
+#    border: 1px solid var(--border);
+#    background-color: transparent;
+#}
+#
+#.dark .control-center-menu .context-menu {
+#    color: var(--textDark);
+#    border: 1px solid var(--borderDark);
+#}
+
+/* ---- Control Center source dropdown (QMenu popup) ---- */
+.context-menu {
+    background-color: rgb(226, 226, 226);   /* panel, like .audio-menu */
     border: 1px solid var(--border);
-    background-color: transparent;
-}
-
-.dark .control-center-menu .context-menu {
-    color: var(--textDark);
-    border: 1px solid var(--borderDark);
-}
-
-.control-center-menu .context-menu::item {
-    background-color: transparent;
-    padding: 6px 12px;
-    margin: 2px 6px;
-    border-radius: var(--border-radius3);
-    min-width: 100px;
-}
-.control-center-menu .context-menu::item:selected  {
-    background-color: var(--hover);
+    border-radius: var(--border-radius);
+    padding: 4px 0px;
     color: var(--text);
 }
 
-.dark .control-center-menu .context-menu::item:selected  {
-    background-color: var(--hoverDark);
+.dark.context-menu {
+    background-color: rgb(44, 44, 44);
+    border: 1px solid var(--borderDark);
     color: var(--textDark);
 }
 
-.control-center-menu .context-menu::separator {
-    height: 1px;
-    background-color: var(--border);
-    margin: 4px 0;
+/* rows = like .device */
+.context-menu::item {
+    background-color: rgb(240, 240, 240);   /* lighter row */
+    padding: 6px 12px 6px 8px;
+    margin: 2px 6px;
+    border-radius: var(--border-radius2);
+    min-width: 100px;
+    color: var(--text);
+}
+.dark.context-menu::item {
+    background-color: rgb(58, 58, 58);
+    color: var(--textDark);
 }
 
-.dark .control-center-menu .context-menu::separator {
-    background-color: var(--borderDark);
+/* selected / current device = like .device.selected */
+.context-menu::item:selected {
+    background-color: rgb(200, 200, 200);
+    color: var(--text);
+}
+.dark.context-menu::item:selected {
+    background-color: rgb(80, 80, 80);
+    color: var(--textDark);
+}
+
+/* checkmark -> small accent bar */
+.context-menu::indicator:unchecked {
+    width: 4px;
+    height: 12px;
+    margin-left: 0;
+    background-color: transparent;
+}
+.context-menu::indicator:checked {
+    width: 4px;
+    height: 12px;
+    margin-left: 4px;
+    background-color: var(--accent);
+    border-radius: var(--border-radius3);
+}
+.dark.context-menu::indicator:checked {
+    background-color: var(--accentDark);
 }
 
 .control-center-menu .context-menu::indicator:unchecked {

@@ -60,7 +60,7 @@ bars:
       - lines
       - systray
       - notifications
-      - wallpapers
+      #- wallpapers
       - control_center
 widgets:
   home:
