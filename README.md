@@ -16,3 +16,4 @@ Computer Configuration -> Administrative Templates -> Windows Components -> Micr
 
 Add a registrt entry do disable annoying popup of gamebar that you do not even have installed.
 
+![Screenshot](./screens/Screenshot_1.png)   
