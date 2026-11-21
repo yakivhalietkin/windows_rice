@@ -5,7 +5,7 @@ So this will be a simple list of commands to be run to get everything I need. Ma
 ## scoop
 
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser\
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression\
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
 scoop install git\
 scoop install main/winget\
