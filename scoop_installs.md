@@ -31,7 +31,7 @@ winget install Brave.Brave \
 winget install Valve.Steam\
 winget install Tailscale.Tailscale\
 winget install Nextcloud.NextcloudDesktop\
-winget install Microsoft.PowerShell\
+winget install Microsoft.PowerShell
 
 ### for nvidia
 scoop install extras/tinynvidiaupdatechecker
