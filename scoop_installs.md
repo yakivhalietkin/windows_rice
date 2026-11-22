@@ -26,6 +26,8 @@ scoop install main/vim\
 scoop install extras/windows-terminal\
 scoop install extras/yasb\
 scoop install versions/windowsdesktop-runtime-8.0\
+scoop install extras/nomacs\
+scoop install extras/vlc\
 \
 winget install Brave.Brave \
 winget install Valve.Steam\
